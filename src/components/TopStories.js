@@ -11,7 +11,7 @@ const TopStories = () => {
     )
       .then((response) => {
         if (!response.ok) {
-          return error;
+          throw new Error(`${response.status}: ${response.statusText}`);
         } else {
           return response.json();
         }
@@ -27,8 +27,10 @@ const TopStories = () => {
   }, []);
 
   if (error) {
+    console.log("if error");
     return <h1>Error: {error.message}</h1>;
   } else if (!isLoaded) {
+    console.log("!isLoaded");
     return <h1>Loading ...</h1>;
   } else {
     return (

@@ -4,7 +4,7 @@ import TopStories from "./TopStories";
 function App() {
   return (
     <>
-      <TopStories>TopStories</TopStories>
+      <TopStories />
     </>
   );
 }
